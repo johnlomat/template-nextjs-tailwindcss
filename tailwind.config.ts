@@ -12,6 +12,9 @@ const config: Config = {
       padding: '1.5rem',
     },
     extend: {
+      fontFamily: {
+        poppins: ['var(--font-open-sans)'],
+      },
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
