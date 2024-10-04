@@ -35,7 +35,7 @@ export default function RootLayout({
       <body
         className={cn('antialiased', openSans.variable, geistSans.variable, geistMono.variable)}
       >
-        {children}
+        <div className="page-container">{children}</div>
       </body>
     </html>
   )
