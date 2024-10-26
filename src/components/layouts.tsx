@@ -54,7 +54,9 @@ const containerRowSpacing = cva('container', {
 export const Container = ({ children, className, rowSpacing }: ContainerProps) => {
   return (
     <React.Fragment>
-      <div className={cn(containerRowSpacing({ rowSpacing }), className)}>{children}</div>
+      <div className={cn('w-full md:w-[95%]', containerRowSpacing({ rowSpacing }), className)}>
+        {children}
+      </div>
     </React.Fragment>
   )
 }
