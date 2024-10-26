@@ -23,15 +23,15 @@ export default function Home() {
           <li>Save and see your changes instantly.</li>
         </ol>
 
-        <div className="flex flex-col items-center gap-4 sm:flex-row">
+        <div className="flex flex-col flex-wrap items-center gap-4 sm:flex-row">
           <a
-            className="flex h-10 items-center justify-center gap-2 rounded-full border border-solid border-transparent bg-foreground px-4 text-sm text-background transition-colors hover:bg-[#383838] sm:h-12 sm:px-5 sm:text-base dark:hover:bg-[#ccc]"
+            className="flex h-10 items-center justify-center rounded-full border border-solid border-black/[.08] px-4 text-sm transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-12 sm:min-w-44 sm:px-5 sm:text-base dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Image
-              className="dark:invert"
+              className="brightness-0 dark:invert"
               src="https://nextjs.org/icons/vercel.svg"
               alt="Vercel logomark"
               width={20}
@@ -46,6 +46,13 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             Read our docs
+          </a>
+          <a
+            className="flex h-10 w-full items-center justify-center gap-2 rounded-full border border-solid border-transparent bg-foreground px-4 text-sm text-background transition-colors hover:bg-[#383838] sm:h-12 sm:px-5 sm:text-base dark:hover:bg-[#ccc]"
+            href="/layouts-component-sample"
+            rel="noopener noreferrer"
+          >
+            Layouts component sample
           </a>
         </div>
       </main>
