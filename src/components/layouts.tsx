@@ -18,23 +18,10 @@ export const Main = ({ children, className }: MainProps) => {
 interface SectionProps {
   children: React.ReactNode
   className?: string
-}
-
-export const Section = ({ children, className }: SectionProps) => {
-  return (
-    <React.Fragment>
-      <section className={cn('relative bg-white py-16', className)}>{children}</section>
-    </React.Fragment>
-  )
-}
-
-interface ContainerProps {
-  children: React.ReactNode
-  className?: string
   rowSpacing?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 }
 
-const containerRowSpacing = cva('container', {
+const sectionStyle = cva('relative bg-white py-16', {
   variants: {
     rowSpacing: {
       default: 'space-y-7',
@@ -51,12 +38,45 @@ const containerRowSpacing = cva('container', {
   },
 })
 
-export const Container = ({ children, className, rowSpacing }: ContainerProps) => {
+export const Section = ({ children, className, rowSpacing }: SectionProps) => {
   return (
     <React.Fragment>
-      <div className={cn('w-full md:w-[95%]', containerRowSpacing({ rowSpacing }), className)}>
-        {children}
-      </div>
+      <section className={cn(sectionStyle({ rowSpacing }), className)}>{children}</section>
+    </React.Fragment>
+  )
+}
+
+interface ContainerProps {
+  children: React.ReactNode
+  className?: string
+  fullWidth?: boolean
+  rowSpacing?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+}
+
+const containerStyle = cva('container w-full md:w-[95%]', {
+  variants: {
+    fullWidth: {
+      true: 'w-full sm:w-full md:w-full lg:w-full xl:w-full max-w-full p-0',
+    },
+    rowSpacing: {
+      default: 'space-y-7',
+      none: 'space-y-0',
+      sm: 'space-y-2',
+      md: 'space-y-4',
+      lg: 'space-y-6',
+      xl: 'space-y-8',
+      '2xl': 'space-y-10',
+    },
+  },
+  defaultVariants: {
+    rowSpacing: 'default',
+  },
+})
+
+export const Container = ({ children, className, fullWidth, rowSpacing }: ContainerProps) => {
+  return (
+    <React.Fragment>
+      <div className={cn(containerStyle({ fullWidth, rowSpacing }), className)}>{children}</div>
     </React.Fragment>
   )
 }
